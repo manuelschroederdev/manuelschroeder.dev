@@ -1,0 +1,10 @@
+---
+const { article } = Astro.props
+---
+
+<article class="bg-zinc-100 p-6 rounded-lg">
+	<h3 class="text-lg mb-3">{article.headline}</h3>
+	<div>
+		{article.teaser}
+	</div>
+</article>

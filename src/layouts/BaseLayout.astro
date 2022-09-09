@@ -1,0 +1,19 @@
+---
+import Header from '../components/Header.astro'
+import Footer from '../components/Footer.astro'
+const { title = 'Home' } = Astro.props
+---
+<html lang='en'><!-- make this dynamic -->
+  <head>
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width' />
+    <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
+    <title>{title} | Manuel Schröder</title>
+  </head>
+
+  <body class="pt-36">
+    <Header />
+    <slot />
+    <Footer />
+  </body>
+</html>

@@ -1,0 +1,23 @@
+---
+const currentYear = new Date().getFullYear()
+---
+<footer class="mt-12">
+	<div class="w-full h-[1px] bg-gradient-to-r from-transparent via-zinc-300 to-transparent"></div>
+	<div class="container text-center py-6">
+		<p>Built with Storyblok, Astro and Tailwind. Check out the source code  on GitHub.</p>
+		<ul class="flex flex-col md:flex-row justify-center mt-4 text-sm">
+			<li>Legal notice</li>
+			<li>Privacy policy</li>
+			<li>&copy {currentYear} Manuel Schröder</li>
+		</ul>
+	</div>
+</footer>
+
+<style>
+	ul > li {
+		@apply px-3 border-r border-zinc-300;
+	}
+	ul > li:last-child {
+		@apply border-0;
+	}
+</style>

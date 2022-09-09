@@ -1,0 +1,19 @@
+{
+  "name": "astro-sdk-demo",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "devDependencies": {
+    "@astrojs/tailwind": "^1.0.0",
+    "@astrojs/vue": "^1.0.1",
+    "@storyblok/astro": "1.0.0",
+    "@vitejs/plugin-basic-ssl": "^0.1.2",
+    "astro": "^1.1.8",
+    "axios": "^0.27.2",
+    "vue": "^3.2.37"
+  }
+}
