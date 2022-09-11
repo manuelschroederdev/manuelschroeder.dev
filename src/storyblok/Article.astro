@@ -1,4 +1,5 @@
 ---
+import Link from '../components/Link.astro'
 import { renderRichText } from '@storyblok/astro'
 import { storyblokEditable } from '@storyblok/astro'
 
@@ -7,9 +8,11 @@ const { blok } = Astro.props
 const renderedRichText = renderRichText(blok.text)
 ---
 
-<article {...storyblokEditable(blok)} class="container">
-  <h1>{blok.headline}</h1>
-  <h2>{blok.subheadline}</h2>
-	<p>{blok.teaser}</p>
-	<div set:html={renderedRichText}></div>
+<article {...storyblokEditable(blok)} class="container max-w-prose">
+	{blok.image?.filename && <img class="rounded-lg shadow-lg mb-12 pointer-events-none" src={blok.image.filename + '/m/1000x0'} />}
+  <h1 class="text-5xl font-extrabold mb-2">{blok.headline}</h1>
+  <h2 class="text-2xl font-extralight mb-4">{blok.subheadline}</h2>
+	<section class="text-xl mb-4">{blok.teaser}</section>
+	<section set:html={renderedRichText} class="prose mb-12"></section>
+	<Link href="/blog">See all articles</Link>
 </article>

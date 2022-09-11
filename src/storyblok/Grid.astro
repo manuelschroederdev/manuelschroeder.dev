@@ -1,17 +1,18 @@
 ---
-//import StoryblokComponents from './StoryblokComponents.astro';
 import { storyblokEditable } from '@storyblok/astro'
 import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro'
+import Headline from '../components/Headline.astro'
 
 const { blok } = Astro.props
 ---
 
-<div {...storyblokEditable(blok)}>
-  <div class='container grid grid-cols-3 gap-12'>
+<section {...storyblokEditable(blok)} class="page-section text-center">
+  <Headline>{blok.headline}</Headline>
+  <div class='container grid grid-cols-6 gap-6'>
     {
-      blok.columns?.map((blok) => {
+      blok.cards?.map((blok) => {
         return <StoryblokComponent blok={blok} />
       })
     }
   </div>
-</div>
+</section>

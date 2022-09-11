@@ -1,10 +1,17 @@
 ---
-const { article } = Astro.props
+import Link from './Link.astro'
+
+const { article, slug } = Astro.props
+
+const published = new Date(article.published)
+const publishedFormatted = published.getMonth() + '/' + published.getDay() + '/' + published.getFullYear()
 ---
 
-<article class="bg-zinc-100 p-6 rounded-lg">
-	<h3 class="text-lg mb-3">{article.headline}</h3>
-	<div>
+<article class="bg-stone-100 dark:bg-stone-800 p-6 rounded-lg">
+	<h3 class="text-2xl font-extrabold mb-3">{article.headline}</h3>
+	<!-- <span class="uppercase text-xs">Published: {publishedFormatted}</span> -->
+	<div class="line-clamp-4 leading-relaxed mb-3">
 		{article.teaser}
 	</div>
+	<Link href={'/'+slug}>Read more</Link>
 </article>

@@ -11,8 +11,10 @@
     "@astrojs/tailwind": "^1.0.0",
     "@astrojs/vue": "^1.0.1",
     "@storyblok/astro": "1.0.0",
+    "@tailwindcss/line-clamp": "^0.4.2",
+    "@tailwindcss/typography": "^0.5.7",
     "@vitejs/plugin-basic-ssl": "^0.1.2",
-    "astro": "^1.1.8",
+    "astro": "^1.2.1",
     "axios": "^0.27.2",
     "vue": "^3.2.37"
   }

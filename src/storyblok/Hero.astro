@@ -1,0 +1,20 @@
+---
+import HeadlineSegment from '../components/HeadlineSegment.astro'
+import { renderRichText } from '@storyblok/astro'
+import { storyblokEditable } from '@storyblok/astro'
+import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro'
+
+const { blok } = Astro.props
+
+const renderedRichText = renderRichText(blok.text)
+---
+
+<section {...storyblokEditable(blok)} class="container text-center">
+	<h1 class="text-5xl font-extrabold mb-2 leading-[1.5]">
+		{blok.headline_segments.map((segment) => {
+			return <HeadlineSegment segment={segment} />
+		})}
+	</h1>
+	<section class="max-w-xl text-xl mx-auto leading-relaxed mb-8" set:html={renderedRichText}></section>
+	<StoryblokComponent blok={blok.button[0]} />
+</section>

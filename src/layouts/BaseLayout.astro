@@ -9,11 +9,46 @@ const { title = 'Home' } = Astro.props
     <meta name='viewport' content='width=device-width' />
     <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
     <title>{title} | Manuel Schröder</title>
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;400;800&display=swap');
+    </style>
   </head>
 
-  <body class="pt-36">
+  <body class="pt-36 text-stone-700 dark:text-stone-200 dark:bg-stone-900">
     <Header />
     <slot />
     <Footer />
   </body>
 </html>
+
+<style is:global>
+  .page-section {
+    @apply py-12 md:py-24;
+  }
+  .page-section + .page-section {
+    @apply pt-0;
+  }
+</style>
+
+<script is:inline>
+  const theme = (() => {
+    // check if theme stored in localStorage
+    if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+      return localStorage.getItem('theme')
+    }
+    // check if user prefers dark color scheme
+    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      return 'dark'
+    }
+    // else return light theme
+    return 'light'
+  })() // immediately invoked
+
+  // apply theme class to html
+  if (theme === 'light') {
+    document.documentElement.classList.remove('dark')
+  } else {
+    document.documentElement.classList.add('dark')
+  }
+  window.localStorage.setItem('theme', theme)
+</script>

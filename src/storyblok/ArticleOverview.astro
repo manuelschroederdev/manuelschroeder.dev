@@ -14,7 +14,7 @@ const articles = data.stories.filter((story) => story.is_startpage !== true)
 <section class="container grid grid-cols-3 gap-12">
 	{
 		articles?.map((article) => {
-				return <ArticleCard article={article.content} />
+				return <ArticleCard article={article.content} slug={article.full_slug} />
 		})
 	}
 </section>

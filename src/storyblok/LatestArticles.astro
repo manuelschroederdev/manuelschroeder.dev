@@ -1,0 +1,29 @@
+---
+import { useStoryblokApi } from '@storyblok/astro'
+import { storyblokEditable } from '@storyblok/astro'
+import ArticleCard from '../components/ArticleCard.astro'
+import Headline from '../components/Headline.astro'
+
+const { blok } = Astro.props
+
+const storyblokApi = useStoryblokApi()
+
+const { data } = await storyblokApi.get('cdn/stories/', {
+  version: 'draft',
+  starts_with: 'blog',
+	per_page: '6'
+})
+
+const articles = data.stories.filter((story) => story.is_startpage !== true)
+---
+
+<section {...storyblokEditable(blok)} class="page-section text-center">
+	<Headline>Latest Articles</Headline>
+	<div class="container grid grid-cols-3 gap-12">
+		{
+			articles?.map((article) => {
+					return <ArticleCard article={article.content} slug={article.full_slug} />
+			})
+		}
+	</div>
+</section>

@@ -1,0 +1,4 @@
+---
+const { segment } = Astro.props
+---
+<span class={segment.highlight ? 'text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary_alt' : ''}>{segment.text}</span>{segment.line_break && <br />}

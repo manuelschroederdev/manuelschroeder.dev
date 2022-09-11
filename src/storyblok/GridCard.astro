@@ -1,0 +1,9 @@
+---
+import { storyblokEditable } from '@storyblok/astro'
+
+const { blok } = Astro.props
+---
+
+<div {...storyblokEditable(blok)} class="border border-stone-300 p-6 flex items-center justify-center w-full aspect-square rounded-lg">
+	<img src={blok.icon.filename} width="80" class="pointer-events-none" alt={blok.label}>
+</div>
