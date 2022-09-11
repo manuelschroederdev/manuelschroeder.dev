@@ -13,6 +13,6 @@ const renderedRichText = renderRichText(blok.text)
   <h1 class="text-5xl font-extrabold mb-2">{blok.headline}</h1>
   <h2 class="text-2xl font-extralight mb-4">{blok.subheadline}</h2>
 	<section class="text-xl mb-4">{blok.teaser}</section>
-	<section set:html={renderedRichText} class="prose mb-12"></section>
+	<section set:html={renderedRichText} class="prose prose-stone-200 dark:prose-invert mb-12"></section>
 	<Link href="/blog">See all articles</Link>
 </article>

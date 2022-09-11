@@ -2,9 +2,9 @@
 const currentYear = new Date().getFullYear()
 ---
 <footer class="mt-12">
-	<div class="w-full h-[1px] bg-gradient-to-r from-transparent via-zinc-300 to-transparent"></div>
+	<div class="w-full h-[1px] bg-gradient-to-r from-transparent via-stone-300 dark:via-stone-700 to-transparent"></div>
 	<div class="container text-center py-6">
-		<p>Built with Storyblok, Astro and Tailwind. Source code available on GitHub.</p>
+		<p class="links">Built with <a href="">Storyblok</a>, <a href="">Astro</a> and <a href="">Tailwind</a>. Source code available on <a href="">GitHub</a>.</p>
 		<ul class="flex flex-col md:flex-row justify-center mt-4 text-sm">
 			<li><a href="/legal-notice">Legal notice</a></li>
 			<li><a href="/privacy-policy">Privacy policy</a></li>
@@ -19,5 +19,9 @@ const currentYear = new Date().getFullYear()
 	}
 	ul > li:last-child {
 		@apply border-0;
+	}
+
+	.links a {
+		@apply underline underline-offset-2 decoration-2 decoration-primary;
 	}
 </style>

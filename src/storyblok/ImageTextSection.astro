@@ -12,7 +12,7 @@ const renderedRichText = renderRichText(blok.text)
 <section {...storyblokEditable(blok)} class="container grid grid-cols-2 gap-12 place-items-center">
 	<div>
 		<Headline margin="small">{blok.headline}</Headline>
-		<section class="prose leading-relaxed mb-8" set:html={renderedRichText}></section>
+		<section class="prose prose-stone dark:prose-invert leading-relaxed mb-8" set:html={renderedRichText}></section>
 		{blok.button[0] && <StoryblokComponent blok={blok.button[0]} />}
 	</div>
 	<div>
