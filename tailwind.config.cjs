@@ -7,14 +7,13 @@ module.exports = {
       padding: '2rem',
     },
     fontFamily: {
-      sans: 'Inter, sans-serif',
+      //sans: 'Inter, sans-serif',
+      sans: 'Barlow, sans-serif',
     },
     extend: {
       colors: {
-        //primary: '#86354E',
         primary: '#b18854',
         primary_alt: '#86354E',
-        secondary: '#1c243d',
       },
     },
   },

@@ -1,0 +1,12 @@
+---
+import Link from '../components/Link.astro'
+const { url } = Astro.props
+
+let domain = new URL(url)
+domain = domain.hostname.slice(4)
+---
+
+<section class='bg-stone-100 dark:bg-stone-800 p-6 mb-4 rounded-lg'>
+  <p class='mb-2'>This article was originally published on {domain}.</p>
+  <Link href={url} target='_blank'>Read the article</Link>
+</section>

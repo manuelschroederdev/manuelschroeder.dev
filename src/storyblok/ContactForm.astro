@@ -1,0 +1,16 @@
+---
+import { storyblokEditable } from '@storyblok/astro'
+import { renderRichText } from '@storyblok/astro'
+import Headline from '../components/Headline.astro'
+import ContactForm from './ContactForm.vue'
+
+const { blok } = Astro.props
+
+const renderedRichText = renderRichText(blok.text)
+---
+
+<section {...storyblokEditable(blok)} class='page-section container max-w-xl mx-auto'>
+  <Headline margin='small'>{blok.headline}</Headline>
+  <section set:html={renderedRichText} class='prose prose-stone-200 dark:prose-invert mb-6'></section>
+  <ContactForm blok={blok} client:idle />
+</section>

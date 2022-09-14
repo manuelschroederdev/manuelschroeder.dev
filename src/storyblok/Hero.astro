@@ -9,7 +9,7 @@ const { blok } = Astro.props
 const renderedRichText = renderRichText(blok.text)
 ---
 
-<section {...storyblokEditable(blok)} class="container text-center">
+<section {...storyblokEditable(blok)} class="page-section container text-center">
 	<h1 class="text-5xl font-extrabold mb-2 leading-[1.5]">
 		{blok.headline_segments.map((segment) => {
 			return <HeadlineSegment segment={segment} />

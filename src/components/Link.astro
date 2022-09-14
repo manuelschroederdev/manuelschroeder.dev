@@ -1,4 +1,10 @@
 ---
-const {href} = Astro.props
+const { href, target = '_self' } = Astro.props
 ---
-<a href={href} class="font-bold text-lg underline underline-offset-2 decoration-2 decoration-primary hover:text-primary hover:decoration-black transition-all duration-500 dark:hover:decoration-stone-200"><slot /></a>
+
+<a
+  href={href}
+  target={target}
+  class='font-bold text-lg underline underline-offset-2 decoration-2 decoration-primary hover:text-primary hover:decoration-black transition-all duration-500 dark:hover:decoration-stone-200'
+  ><slot />
+</a>

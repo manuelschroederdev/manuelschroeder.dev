@@ -2,8 +2,21 @@
 import { storyblokEditable } from '@storyblok/astro'
 
 const { blok } = Astro.props
+const iconName = blok.icon.charAt(0).toUpperCase() + blok.icon.slice(1)
+
+const iconComponents = await Astro.glob('../components/icons/*.astro')
+const iconComponent = iconComponents.find((component) => component.file.includes(iconName))
+const CurrentIcon = iconComponent.default
 ---
 
-<div {...storyblokEditable(blok)} class="border border-stone-300 p-6 flex items-center justify-center w-full aspect-square rounded-lg">
-	<img src={blok.icon.filename} width="80" class="pointer-events-none" alt={blok.label}>
+<div
+  {...storyblokEditable(blok)}
+  class='relative group border border-stone-300 dark:border-stone-700 hover:border-primary dark:hover:border-primary p-6 flex items-center justify-center w-full aspect-square rounded-lg transition-colors duration-500'
+>
+  <CurrentIcon />
+  <span
+    class='absolute w-full bottom-2 left-1/2 -translate-x-1/2 font-extralight group-hover:text-primary transition-colors text-sm duration-500'
+  >
+    {blok.label}
+  </span>
 </div>

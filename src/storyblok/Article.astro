@@ -2,17 +2,28 @@
 import Link from '../components/Link.astro'
 import { renderRichText } from '@storyblok/astro'
 import { storyblokEditable } from '@storyblok/astro'
+import Canonical from '../components/Canonical.astro'
 
 const { blok } = Astro.props
 
 const renderedRichText = renderRichText(blok.text)
+
+const published = new Date(blok.published)
+const sep = '/'
+const publishedFormatted = published.getMonth() + sep + published.getDay() + sep + published.getFullYear()
 ---
 
-<article {...storyblokEditable(blok)} class="container max-w-prose">
-	{blok.image?.filename && <img class="rounded-lg shadow-lg mb-12 pointer-events-none" src={blok.image.filename + '/m/1000x0'} />}
-  <h1 class="text-5xl font-extrabold mb-2">{blok.headline}</h1>
-  <h2 class="text-2xl font-extralight mb-4">{blok.subheadline}</h2>
-	<section class="text-xl mb-4">{blok.teaser}</section>
-	<section set:html={renderedRichText} class="prose prose-stone-200 dark:prose-invert mb-12"></section>
-	<Link href="/blog">See all articles</Link>
+<article {...storyblokEditable(blok)} class='page-section container max-w-prose'>
+  {
+    blok.image?.filename && (
+      <img class='rounded-lg shadow-lg mb-12 pointer-events-none' src={blok.image.filename + '/m/1000x0'} />
+    )
+  }
+  <h1 class='text-5xl font-extrabold mb-2'>{blok.headline}</h1>
+  <h2 class='text-2xl font-extralight mb-4'>{blok.subheadline}</h2>
+  <time class='block mb-4'>Published on {publishedFormatted}</time>
+  {blok.is_canonical && blok.canonical_url && <Canonical url={blok.canonical_url} />}
+  <section class='text-xl mb-4'>{blok.teaser}</section>
+  <section set:html={renderedRichText} class='prose prose-stone-200 dark:prose-invert mb-12'></section>
+  <Link href='/blog'>See all articles</Link>
 </article>

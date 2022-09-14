@@ -5,4 +5,4 @@ const { blok } = Astro.props
 
 const classes = 'font-extrabold hover:text-primary transition-colors duration-500'
 ---
-<a class={slug === blok.link.cached_url.replace('/','') ? 'underline underline-offset-4 decoration-primary ' + classes : classes} href={'/' + blok.link.cached_url}>{blok.label}</a>
+<a class={slug === blok.link.cached_url.replace('/','') ? 'underline underline-offset-2 decoration-2 decoration-primary ' + classes : classes} href={'/' + blok.link.cached_url}>{blok.label}</a>

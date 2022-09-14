@@ -1,5 +1,6 @@
 ---
 import { useStoryblokApi } from '@storyblok/astro'
+import Headline from '../components/Headline.astro'
 import ArticleCard from '../components/ArticleCard.astro'
 
 const storyblokApi = useStoryblokApi()
@@ -11,10 +12,13 @@ const { data } = await storyblokApi.get('cdn/stories/', {
 
 const articles = data.stories.filter((story) => story.is_startpage !== true)
 ---
-<section class="container grid grid-cols-3 gap-12">
-	{
-		articles?.map((article) => {
-				return <ArticleCard article={article.content} slug={article.full_slug} />
-		})
-	}
+<section class="page-section container">
+	<Headline>Blog Articles</Headline>
+	<div class="grid grid-cols-3 gap-12">
+		{
+			articles?.map((article) => {
+					return <ArticleCard article={article.content} slug={article.full_slug} />
+			})
+		}
+	</div>
 </section>

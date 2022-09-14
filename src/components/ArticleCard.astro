@@ -4,14 +4,17 @@ import Link from './Link.astro'
 const { article, slug } = Astro.props
 
 const published = new Date(article.published)
-const publishedFormatted = published.getMonth() + '/' + published.getDay() + '/' + published.getFullYear()
+const sep = '/'
+const publishedFormatted = published.getMonth() + sep + published.getDay() + sep + published.getFullYear()
 ---
 
-<article class="bg-stone-100 dark:bg-stone-800 p-6 rounded-lg">
-	<h3 class="text-2xl font-extrabold mb-3">{article.headline}</h3>
-	<!-- <span class="uppercase text-xs">Published: {publishedFormatted}</span> -->
-	<div class="line-clamp-4 leading-relaxed mb-3">
-		{article.teaser}
-	</div>
-	<Link href={'/'+slug}>Read more</Link>
+<article
+  class='relative bg-stone-100 dark:bg-stone-800 transition-all hover:-translate-y-0.5 hover:shadow-lg p-6 rounded-lg text-left'
+>
+  <h3 class='text-2xl font-extrabold mb-3'>{article.headline}</h3>
+  <time class='absolute top-2 right-2 text-stone-500 text-sm font-normal' set:html={publishedFormatted}></time>
+  <div class='line-clamp-4 leading-relaxed mb-3'>
+    {article.teaser}
+  </div>
+  <Link href={'/' + slug}>Read more</Link>
 </article>

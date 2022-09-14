@@ -2,9 +2,11 @@ import { defineConfig } from 'astro/config'
 import vue from '@astrojs/vue'
 import storyblok from '@storyblok/astro'
 import tailwind from '@astrojs/tailwind'
+import sitemap from '@astrojs/sitemap'
 import basicSsl from '@vitejs/plugin-basic-ssl'
 
 export default defineConfig({
+  site: 'https://manuelschroeder.dev',
   integrations: [
     storyblok({
       accessToken: 'G5betmBKDXrQGTwgwpu4ygtt',
@@ -21,11 +23,14 @@ export default defineConfig({
         teaser: 'storyblok/Teaser',
         nav_item: 'storyblok/NavItem',
         button: 'storyblok/Button',
-        vue_counter: 'storyblok/VueCounter',
+        contact_form: 'storyblok/ContactForm',
       },
     }),
     tailwind(),
     vue(),
+    sitemap({
+      filter: (page) => page !== 'https://manuelschroeder.dev/site-config',
+    }),
   ],
   vite: {
     plugins: [basicSsl()],

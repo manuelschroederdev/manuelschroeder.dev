@@ -11,19 +11,27 @@ const { data } = await storyblokApi.get('cdn/stories/site-config', {
 const story = data.story
 ---
 
-<header class="fixed top-0 left-0 bg-white bg-opacity-70 backdrop-blur-md w-full h-32 dark:bg-stone-900 dark:bg-opacity-60">
-	<div class="container flex items-center justify-between h-full">
-		<a href="/">
-			<!-- <img src={story.content.logo.filename} alt={story.content.logo.alt} width="180" class="pointer-events-none"> -->
-			<span class="text-xl font-extrabold text-primary">Manuel Schröder</span>
-		</a>
-		<HeaderIcons />
-	</div>
-	<nav class="hidden invisible lg:block lg:visible absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 z-10">
-		<ul class="flex space-x-4">
-			{story.content.header_nav.map(blok => {
-				return <li><StoryblokComponent blok={blok} /></li>
-			})}
-		</ul>
-	</nav>
+<header
+  class='fixed z-50 top-0 left-0 bg-white bg-opacity-70 backdrop-blur-md w-full h-32 dark:bg-stone-900 dark:bg-opacity-60'
+>
+  <div class='container flex items-center justify-between h-full'>
+    <a href='/'>
+      <!-- <img src={story.content.logo.filename} alt={story.content.logo.alt} width="180" class="pointer-events-none"> -->
+      <span class='text-xl font-extrabold text-primary'>Manuel Schröder</span>
+    </a>
+    <HeaderIcons />
+  </div>
+  <nav class='hidden invisible lg:block lg:visible absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 z-10'>
+    <ul class='flex space-x-4'>
+      {
+        story.content.header_nav.map((blok) => {
+          return (
+            <li>
+              <StoryblokComponent blok={blok} />
+            </li>
+          )
+        })
+      }
+    </ul>
+  </nav>
 </header>

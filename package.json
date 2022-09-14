@@ -8,6 +8,7 @@
     "preview": "astro preview"
   },
   "devDependencies": {
+    "@astrojs/sitemap": "^1.0.0",
     "@astrojs/tailwind": "^1.0.0",
     "@astrojs/vue": "^1.0.1",
     "@storyblok/astro": "1.0.0",
