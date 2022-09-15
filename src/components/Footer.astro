@@ -3,16 +3,23 @@ const currentYear = new Date().getFullYear()
 ---
 
 <footer>
-  <div class='w-full h-[1px] bg-gradient-to-r from-transparent via-stone-300 dark:via-stone-700 to-transparent'></div>
-  <div class='container text-center py-6'>
-    <p class='links'>
-      Built with <a href=''>Storyblok</a>, <a href=''>Astro</a> and <a href=''>Tailwind</a>.<br
-        class='md:invisible md:hidden'
-      /> Source code available on <a href=''>GitHub</a>.
+  <div
+    class="w-full h-[1px] bg-gradient-to-r from-transparent via-stone-300 dark:via-stone-700 to-transparent"
+  >
+  </div>
+  <div class="container text-center py-6">
+    <p class="links">
+      Built with <a href="">Storyblok</a>, <a href="">Astro</a> and <a href=""
+        >Tailwind</a
+      >.<br class="md:invisible md:hidden" /> Source code available on <a
+        href="">GitHub</a
+      >.
     </p>
-    <ul class='flex flex-col space-y-1 md:space-y-0 md:flex-row justify-center mt-4 text-sm'>
-      <li><a href='/legal-notice'>Legal notice</a></li>
-      <li><a href='/privacy-policy'>Privacy policy</a></li>
+    <ul
+      class="flex flex-col space-y-1 md:space-y-0 md:flex-row justify-center mt-4 text-sm"
+    >
+      <li><a href="/legal-notice">Legal notice</a></li>
+      <li><a href="/privacy-policy">Privacy policy</a></li>
       <li>&copy {currentYear} Manuel Schröder</li>
     </ul>
   </div>
@@ -20,13 +27,13 @@ const currentYear = new Date().getFullYear()
 
 <style>
   ul > li {
-    @apply md:px-3 md:border-r md:border-zinc-300;
+    @apply md:border-r md:border-zinc-300 md:px-3;
   }
   ul > li:last-child {
     @apply border-0;
   }
 
   .links a {
-    @apply underline underline-offset-2 decoration-2 decoration-primary;
+    @apply underline decoration-primary decoration-2 underline-offset-2;
   }
 </style>

@@ -11,9 +11,9 @@
     <input type="hidden" name="form-name" value="contact" />
     <input type="hidden" name="bot-field" />
     <div>
-      <label class="block mb-2 font-bold text-lg" for="name">Name:</label>
+      <label class="mb-2 block text-lg font-bold" for="name">Name:</label>
       <input
-        class="w-full bg-transparent border border-stone-200 rounded-lg py-2 px-4 focus:outline-none focus:border-primary transition-colors"
+        class="w-full rounded-lg border border-stone-200 bg-transparent py-2 px-4 transition-colors focus:border-primary focus:outline-none"
         type="text"
         name="name"
         id="name"
@@ -21,9 +21,9 @@
       />
     </div>
     <div>
-      <label class="block mb-2 font-bold text-lg" for="email">Email:</label>
+      <label class="mb-2 block text-lg font-bold" for="email">Email:</label>
       <input
-        class="w-full bg-transparent border border-stone-200 rounded-lg py-2 px-4 focus:outline-none focus:border-primary transition-colors"
+        class="w-full rounded-lg border border-stone-200 bg-transparent py-2 px-4 transition-colors focus:border-primary focus:outline-none"
         type="email"
         name="email"
         id="email"
@@ -31,9 +31,9 @@
       />
     </div>
     <div>
-      <label class="block mb-2 font-bold text-lg" for="message">Message:</label>
+      <label class="mb-2 block text-lg font-bold" for="message">Message:</label>
       <textarea
-        class="w-full bg-transparent border border-stone-200 rounded-lg py-2 px-4 focus:outline-none focus:border-primary transition-colors"
+        class="w-full rounded-lg border border-stone-200 bg-transparent py-2 px-4 transition-colors focus:border-primary focus:outline-none"
         name="message"
         id="message"
         rows="7"
@@ -43,7 +43,7 @@
     <div>
       <button
         type="submit"
-        class="font-extrabold bg-stone-200 dark:bg-stone-800 hover:bg-primary hover:text-white rounded-lg py-2 px-4 transition-colors duration-500"
+        class="rounded-lg bg-stone-200 py-2 px-4 font-extrabold transition-colors duration-500 hover:bg-primary hover:text-white dark:bg-stone-800"
       >
         Send message
       </button>

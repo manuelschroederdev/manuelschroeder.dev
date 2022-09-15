@@ -30,6 +30,10 @@ const { data } = await storyblokApi.get(`cdn/stories/${slug}`, {
 const story = data.story
 ---
 
-<BaseLayout title={story.name} is_canonical={story.content.is_canonical} canonical_url={story.content.canonical_url}>
+<BaseLayout
+  title={story.name}
+  is_canonical={story.content.is_canonical}
+  canonical_url={story.content.canonical_url}
+>
   <StoryblokComponent blok={story.content} />
 </BaseLayout>

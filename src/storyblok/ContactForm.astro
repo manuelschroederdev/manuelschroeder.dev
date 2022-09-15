@@ -9,8 +9,15 @@ const { blok } = Astro.props
 const renderedRichText = renderRichText(blok.text)
 ---
 
-<section {...storyblokEditable(blok)} class='page-section container max-w-xl mx-auto'>
-  <Headline margin='small'>{blok.headline}</Headline>
-  <section set:html={renderedRichText} class='prose prose-stone-200 dark:prose-invert mb-6'></section>
+<section
+  {...storyblokEditable(blok)}
+  class="page-section container max-w-xl mx-auto"
+>
+  <Headline margin="small">{blok.headline}</Headline>
+  <section
+    set:html={renderedRichText}
+    class="prose prose-stone-200 dark:prose-invert mb-6"
+  >
+  </section>
   <ContactForm blok={blok} client:idle />
 </section>

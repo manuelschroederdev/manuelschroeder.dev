@@ -9,13 +9,27 @@ const { blok } = Astro.props
 const renderedRichText = renderRichText(blok.text)
 ---
 
-<section {...storyblokEditable(blok)} class="page-section container grid grid-cols-2 gap-12 place-items-center">
-	<div>
-		<Headline margin="small">{blok.headline}</Headline>
-		<section class="prose prose-stone dark:prose-invert leading-relaxed mb-8" set:html={renderedRichText}></section>
-		{blok.button[0] && <StoryblokComponent blok={blok.button[0]} />}
-	</div>
-	<div>
-		{blok.image?.filename && <img class="rounded-lg shadow-lg pointer-events-none" src={blok.image.filename + '/m/1000x0'} />}
-	</div>
+<section
+  {...storyblokEditable(blok)}
+  class="page-section container grid grid-cols-2 gap-12 place-items-center"
+>
+  <div>
+    <Headline margin="small">{blok.headline}</Headline>
+    <section
+      class="prose prose-stone dark:prose-invert leading-relaxed mb-8"
+      set:html={renderedRichText}
+    >
+    </section>
+    {blok.button[0] && <StoryblokComponent blok={blok.button[0]} />}
+  </div>
+  <div>
+    {
+      blok.image?.filename && (
+        <img
+          class="pointer-events-none rounded-lg shadow-lg"
+          src={blok.image.filename + '/m/1000x0'}
+        />
+      )
+    }
+  </div>
 </section>

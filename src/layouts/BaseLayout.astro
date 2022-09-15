@@ -4,24 +4,35 @@ import Footer from '../components/Footer.astro'
 const { title = 'Home', is_canonical = false, canonical_url = '' } = Astro.props
 ---
 
-<html lang='en'>
+<html lang="en">
   <head>
-    <meta charset='UTF-8' />
-    <meta name='viewport' content='width=device-width' />
-    <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{title} | Manuel Schröder</title>
-    {is_canonical && canonical_url && <link rel='canonical' href={canonical_url} />}
+    {
+      is_canonical && canonical_url && (
+        <link rel="canonical" href={canonical_url} />
+      )
+    }
     <style>
       @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@200;400;800&family=Inter:wght@200;400;800&display=swap');
     </style>
   </head>
 
-  <body class='pt-32 text-stone-700 dark:text-stone-200 dark:bg-stone-900'>
+  <body class="pt-32 text-stone-700 dark:text-stone-200 dark:bg-stone-900">
     <Header />
     <slot />
     {is_canonical}
     <Footer />
     <style is:global>
+      html.no-transitions * {
+        -o-transition-property: none !important;
+        -moz-transition-property: none !important;
+        -ms-transition-property: none !important;
+        -webkit-transition-property: none !important;
+        transition-property: none !important;
+      }
       .page-section:first-of-type {
         @apply pt-0;
       }
@@ -36,7 +47,10 @@ const { title = 'Home', is_canonical = false, canonical_url = '' } = Astro.props
     <script is:inline>
       const theme = (() => {
         // check if theme stored in localStorage
-        if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+        if (
+          typeof localStorage !== 'undefined' &&
+          localStorage.getItem('theme')
+        ) {
           return localStorage.getItem('theme')
         }
         // check if user prefers dark color scheme

@@ -12,13 +12,16 @@ const { data } = await storyblokApi.get('cdn/stories/', {
 
 const articles = data.stories.filter((story) => story.is_startpage !== true)
 ---
+
 <section class="page-section container">
-	<Headline>Blog Articles</Headline>
-	<div class="grid grid-cols-3 gap-12">
-		{
-			articles?.map((article) => {
-					return <ArticleCard article={article.content} slug={article.full_slug} />
-			})
-		}
-	</div>
+  <Headline>Blog Articles</Headline>
+  <div class="grid grid-cols-3 gap-12">
+    {
+      articles?.map((article) => {
+        return (
+          <ArticleCard article={article.content} slug={article.full_slug} />
+        )
+      })
+    }
+  </div>
 </section>

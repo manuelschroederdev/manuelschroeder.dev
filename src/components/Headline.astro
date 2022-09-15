@@ -4,9 +4,10 @@ const { margin = 'default' } = Astro.props
 let classes = 'font-extrabold text-primary text-4xl leading-relaxed '
 
 if (margin === 'small') {
-	classes += 'mb-4'
+  classes += 'mb-4'
 } else {
-	classes += 'mb-8'
+  classes += 'mb-8'
 }
 ---
+
 <h2 class={classes}><slot /></h2>
