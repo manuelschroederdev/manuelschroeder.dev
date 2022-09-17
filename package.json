@@ -9,14 +9,15 @@
     "format": "prettier --write src"
   },
   "devDependencies": {
+    "@astrojs/image": "^0.7.0",
     "@astrojs/sitemap": "^1.0.0",
     "@astrojs/tailwind": "^1.0.0",
     "@astrojs/vue": "^1.0.1",
-    "@storyblok/astro": "1.0.0",
+    "@storyblok/astro": "^1.0.0",
     "@tailwindcss/line-clamp": "^0.4.2",
     "@tailwindcss/typography": "^0.5.7",
     "@vitejs/plugin-basic-ssl": "^0.1.2",
-    "astro": "^1.2.4",
+    "astro": "^1.2.5",
     "axios": "^0.27.2",
     "prettier": "^2.7.1",
     "prettier-plugin-astro": "^0.5.4",

@@ -3,6 +3,7 @@ import Link from '../components/Link.astro'
 import { renderRichText } from '@storyblok/astro'
 import { storyblokEditable } from '@storyblok/astro'
 import Canonical from '../components/Canonical.astro'
+import { Image } from '@astrojs/image/components'
 
 const { blok } = Astro.props
 
@@ -24,9 +25,12 @@ const publishedFormatted =
 >
   {
     blok.image?.filename && (
-      <img
+      <Image
         class="pointer-events-none mb-12 rounded-lg shadow-lg"
+        alt={blok.image.alt}
         src={blok.image.filename + '/m/1000x0'}
+        width="1000"
+        aspectRatio={16 / 9}
       />
     )
   }

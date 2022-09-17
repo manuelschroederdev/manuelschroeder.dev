@@ -9,8 +9,15 @@ const { data } = await storyblokApi.get('cdn/stories/home', {
 })
 
 const story = data.story
+
+const seo = {
+  meta_desc: '',
+}
+if (story.content.seo) {
+  seo.meta_desc = story.content.seo[0].meta_desc
+}
 ---
 
-<BaseLayout>
+<BaseLayout meta_desc={seo.meta_desc}>
   <StoryblokComponent blok={story.content} />
 </BaseLayout>

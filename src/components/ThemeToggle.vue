@@ -1,5 +1,5 @@
 <template>
-  <button @click="toggle()">
+  <button @click="toggle()" role="button" aria-label="Toggle Dark Mode">
     <svg
       v-if="theme === 'light'"
       xmlns="http://www.w3.org/2000/svg"

@@ -3,6 +3,7 @@ import vue from '@astrojs/vue'
 import storyblok from '@storyblok/astro'
 import tailwind from '@astrojs/tailwind'
 import sitemap from '@astrojs/sitemap'
+import image from '@astrojs/image'
 import basicSsl from '@vitejs/plugin-basic-ssl'
 
 export default defineConfig({
@@ -28,8 +29,9 @@ export default defineConfig({
     }),
     tailwind(),
     vue(),
+    image(),
     sitemap({
-      filter: (page) => page !== 'https://manuelschroeder.dev/site-config',
+      filter: (page) => page !== 'https://manuelschroeder.dev/site-config/',
     }),
   ],
   vite: {

@@ -1,5 +1,7 @@
 ---
-const { margin = 'default' } = Astro.props
+const { tag = 'h2', margin = 'default' } = Astro.props
+
+const Tag = tag
 
 let classes = 'font-extrabold text-primary text-4xl leading-relaxed '
 
@@ -10,4 +12,4 @@ if (margin === 'small') {
 }
 ---
 
-<h2 class={classes}><slot /></h2>
+<Tag class={classes}><slot /></Tag>

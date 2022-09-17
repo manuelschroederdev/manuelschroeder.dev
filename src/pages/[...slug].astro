@@ -11,6 +11,7 @@ export async function getStaticPaths() {
   })
   let links = data.links
   links = Object.values(links)
+  links = links.filter((link) => link.slug !== 'site-config')
 
   return links.map((link) => {
     return {
@@ -28,10 +29,18 @@ const { data } = await storyblokApi.get(`cdn/stories/${slug}`, {
 })
 
 const story = data.story
+
+const seo = {
+  meta_desc: '',
+}
+if (story.content.seo && story.content.seo[0]) {
+  seo.meta_desc = story.content.seo[0].meta_desc
+}
 ---
 
 <BaseLayout
   title={story.name}
+  meta_desc={seo.meta_desc}
   is_canonical={story.content.is_canonical}
   canonical_url={story.content.canonical_url}
 >
