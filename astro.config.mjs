@@ -5,6 +5,8 @@ import tailwind from '@astrojs/tailwind'
 import sitemap from '@astrojs/sitemap'
 import image from '@astrojs/image'
 import basicSsl from '@vitejs/plugin-basic-ssl'
+import { loadEnv } from 'vite'
+process.env = { ...process.env, ...loadEnv('development', process.cwd()) }
 
 export default defineConfig({
   site: 'https://manuelschroeder.dev',

@@ -7,7 +7,6 @@ module.exports = {
       padding: '2rem',
     },
     fontFamily: {
-      //sans: 'Inter, sans-serif',
       sans: 'Barlow, sans-serif',
     },
     extend: {
@@ -17,5 +16,8 @@ module.exports = {
       },
     },
   },
-  plugins: [require('@tailwindcss/typography'), require('@tailwindcss/line-clamp')],
+  plugins: [
+    require('@tailwindcss/typography'),
+    require('@tailwindcss/line-clamp'),
+  ],
 }

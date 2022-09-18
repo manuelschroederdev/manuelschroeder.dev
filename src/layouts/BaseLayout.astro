@@ -22,9 +22,6 @@ const {
         <link rel="canonical" href={canonical_url} />
       )
     }
-    <style>
-      @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@200;400;800&family=Inter:wght@200;400;800&display=swap');
-    </style>
   </head>
 
   <body class="pt-32 text-stone-700 dark:text-stone-200 dark:bg-stone-900">
@@ -33,6 +30,33 @@ const {
     {is_canonical}
     <Footer />
     <style is:global>
+      /* barlow-200 - latin */
+      @font-face {
+        font-family: 'Barlow';
+        font-style: normal;
+        font-weight: 200;
+        src: local(''), url('../barlow-v12-latin-200.woff2') format('woff2'),
+          /* Chrome 26+, Opera 23+, Firefox 39+ */
+            url('../barlow-v12-latin-200.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+      }
+      /* barlow-regular - latin */
+      @font-face {
+        font-family: 'Barlow';
+        font-style: normal;
+        font-weight: 400;
+        src: local(''), url('../barlow-v12-latin-regular.woff2') format('woff2'),
+          /* Chrome 26+, Opera 23+, Firefox 39+ */
+            url('../barlow-v12-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+      }
+      /* barlow-800 - latin */
+      @font-face {
+        font-family: 'Barlow';
+        font-style: normal;
+        font-weight: 800;
+        src: local(''), url('../barlow-v12-latin-800.woff2') format('woff2'),
+          /* Chrome 26+, Opera 23+, Firefox 39+ */
+            url('../barlow-v12-latin-800.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+      }
       html.no-transitions * {
         -o-transition-property: none !important;
         -moz-transition-property: none !important;
