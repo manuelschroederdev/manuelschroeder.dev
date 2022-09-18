@@ -3,12 +3,17 @@ const { slug } = Astro.params
 
 const { blok } = Astro.props
 
+const url = blok.link.cached_url
+
+const slugToCompare =
+  url.charAt(url.length - 1) === '/' ? url.slice(0, -1) : url
+
 const classes =
   'font-extrabold hover:text-primary transition-colors duration-500'
 ---
 
 <a
-  class={slug === blok.link.cached_url.replace('/', '')
+  class={slug === slugToCompare
     ? 'underline underline-offset-2 decoration-2 decoration-primary ' + classes
     : classes}
   href={'/' + blok.link.cached_url}

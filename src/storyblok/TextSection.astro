@@ -1,0 +1,18 @@
+---
+import Headline from '../components/Headline.astro'
+import { renderRichText } from '@storyblok/astro'
+import { storyblokEditable } from '@storyblok/astro'
+
+const { blok, index } = Astro.props
+
+const renderedRichText = renderRichText(blok.text)
+---
+
+<section {...storyblokEditable(blok)} class="page-section container">
+  <Headline margin="small">{blok.headline}</Headline>
+  <section
+    class="prose prose-stone dark:prose-invert leading-relaxed mb-8"
+    set:html={renderedRichText}
+  >
+  </section>
+</section>
