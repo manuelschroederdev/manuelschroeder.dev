@@ -1,18 +1,19 @@
 import { defineConfig } from 'astro/config'
+import * as dotenv from 'dotenv'
+dotenv.config()
 import vue from '@astrojs/vue'
 import storyblok from '@storyblok/astro'
 import tailwind from '@astrojs/tailwind'
 import sitemap from '@astrojs/sitemap'
 import image from '@astrojs/image'
 import basicSsl from '@vitejs/plugin-basic-ssl'
-import { loadEnv } from 'vite'
-process.env = { ...process.env, ...loadEnv('development', process.cwd()) }
 
 export default defineConfig({
   site: 'https://manuelschroeder.dev',
   integrations: [
     storyblok({
-      accessToken: 'G5betmBKDXrQGTwgwpu4ygtt',
+      accessToken: process.env.STORYBLOK_TOKEN,
+      bridge: process.env.CONTEXT === 'production' ? false : true,
       components: {
         page: 'storyblok/Page',
         article: 'storyblok/Article',
