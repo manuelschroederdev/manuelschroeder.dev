@@ -13,7 +13,7 @@ export default defineConfig({
   integrations: [
     storyblok({
       accessToken: process.env.STORYBLOK_TOKEN,
-      bridge: false,
+      bridge: process.env.NETLIFY === 'true' ? false : true,
       components: {
         page: 'storyblok/Page',
         article: 'storyblok/Article',
