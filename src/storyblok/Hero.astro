@@ -4,7 +4,9 @@ import { renderRichText } from '@storyblok/astro'
 import { storyblokEditable } from '@storyblok/astro'
 import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro'
 
-const { blok } = Astro.props
+const { blok, index } = Astro.props
+
+const HeadlineTag = index === 0 ? 'h1' : 'h2'
 
 const renderedRichText = renderRichText(blok.text)
 ---
@@ -13,7 +15,7 @@ const renderedRichText = renderRichText(blok.text)
   {...storyblokEditable(blok)}
   class="page-section container text-center"
 >
-  <h1
+  <HeadlineTag
     class="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-2 leading-[1.375] md:leading-[1.375] lg:leading-[1.375]"
   >
     {
@@ -21,7 +23,7 @@ const renderedRichText = renderRichText(blok.text)
         return <HeadlineSegment segment={segment} />
       })
     }
-  </h1>
+  </HeadlineTag>
   <section
     class="max-w-xl text-lg md:text-xl mx-auto leading-relaxed md:leading-relaxed mb-8"
     set:html={renderedRichText}

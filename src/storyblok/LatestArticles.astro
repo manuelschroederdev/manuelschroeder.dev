@@ -4,7 +4,9 @@ import { storyblokEditable } from '@storyblok/astro'
 import ArticleCard from '../components/ArticleCard.astro'
 import Headline from '../components/Headline.astro'
 
-const { blok } = Astro.props
+const { blok, index } = Astro.props
+
+const headlineTag = index === 0 ? 'h1' : 'h2'
 
 const storyblokApi = useStoryblokApi()
 
@@ -18,7 +20,7 @@ const articles = data.stories.filter((story) => story.is_startpage !== true)
 ---
 
 <section {...storyblokEditable(blok)} class="page-section text-center">
-  <Headline>Latest Articles</Headline>
+  <Headline tag={headlineTag}>Latest Articles</Headline>
   <div
     class="container grid md:grid-cols-2 lg:grid-cols-3 gap-12 place-items-center"
   >

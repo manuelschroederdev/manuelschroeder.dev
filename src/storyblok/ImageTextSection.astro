@@ -7,6 +7,8 @@ import { Image } from '@astrojs/image/components'
 
 const { blok, index } = Astro.props
 
+const headlineTag = index === 0 ? 'h1' : 'h2'
+
 const renderedRichText = renderRichText(blok.text)
 ---
 
@@ -28,8 +30,7 @@ const renderedRichText = renderRichText(blok.text)
     }
   </div>
   <div class="md:order-0">
-    {index}
-    <Headline tag="h1" margin="small">{blok.headline}</Headline>
+    <Headline tag={headlineTag} margin="small">{blok.headline}</Headline>
     <section
       class="prose prose-stone dark:prose-invert leading-relaxed mb-8"
       set:html={renderedRichText}

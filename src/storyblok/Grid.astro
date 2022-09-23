@@ -3,11 +3,13 @@ import { storyblokEditable } from '@storyblok/astro'
 import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro'
 import Headline from '../components/Headline.astro'
 
-const { blok } = Astro.props
+const { blok, index } = Astro.props
+
+const headlineTag = index === 0 ? 'h1' : 'h2'
 ---
 
 <section {...storyblokEditable(blok)} class="page-section text-center">
-  <Headline>{blok.headline}</Headline>
+  <Headline tag={headlineTag}>{blok.headline}</Headline>
   <div
     class="container grid grid-cols-4 lg:grid-cols-6 gap-6 place-items-center"
   >

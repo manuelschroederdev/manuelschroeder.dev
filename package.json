@@ -13,7 +13,7 @@
     "@astrojs/sitemap": "^1.0.0",
     "@astrojs/tailwind": "^2.0.1",
     "@astrojs/vue": "^1.0.1",
-    "@storyblok/astro": "^1.0.0",
+    "@storyblok/astro": "^1.1.0",
     "@tailwindcss/line-clamp": "^0.4.2",
     "@tailwindcss/typography": "^0.5.7",
     "@vitejs/plugin-basic-ssl": "^0.1.2",

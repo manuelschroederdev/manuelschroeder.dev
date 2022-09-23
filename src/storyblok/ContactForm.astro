@@ -4,7 +4,9 @@ import { renderRichText } from '@storyblok/astro'
 import Headline from '../components/Headline.astro'
 import ContactForm from './ContactForm.vue'
 
-const { blok } = Astro.props
+const { blok, index } = Astro.props
+
+const headlineTag = index === 0 ? 'h1' : 'h2'
 
 const renderedRichText = renderRichText(blok.text)
 ---
@@ -13,7 +15,7 @@ const renderedRichText = renderRichText(blok.text)
   {...storyblokEditable(blok)}
   class="page-section container max-w-xl mx-auto"
 >
-  <Headline margin="small">{blok.headline}</Headline>
+  <Headline tag={headlineTag} margin="small">{blok.headline}</Headline>
   <section
     set:html={renderedRichText}
     class="prose prose-stone-200 dark:prose-invert mb-6"
