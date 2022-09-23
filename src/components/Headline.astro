@@ -3,7 +3,8 @@ const { tag = 'h2', margin = 'default' } = Astro.props
 
 const Tag = tag
 
-let classes = 'font-extrabold text-primary text-4xl leading-relaxed '
+let classes =
+  'font-extrabold text-primary text-2xl md:text-3xl lg:text-4xl leading-relaxed '
 
 if (margin === 'small') {
   classes += 'mb-4'

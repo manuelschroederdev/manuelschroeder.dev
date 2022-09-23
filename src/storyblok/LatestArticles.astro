@@ -19,7 +19,9 @@ const articles = data.stories.filter((story) => story.is_startpage !== true)
 
 <section {...storyblokEditable(blok)} class="page-section text-center">
   <Headline>Latest Articles</Headline>
-  <div class="container grid grid-cols-3 gap-12">
+  <div
+    class="container grid md:grid-cols-2 lg:grid-cols-3 gap-12 place-items-center"
+  >
     {
       articles?.map((article) => {
         return (

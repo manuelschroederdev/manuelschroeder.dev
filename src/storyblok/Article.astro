@@ -34,15 +34,19 @@ const publishedFormatted =
       />
     )
   }
-  <h1 class="text-5xl font-extrabold mb-2">{blok.headline}</h1>
-  <h2 class="text-2xl font-extralight mb-4">{blok.subheadline}</h2>
+  <h1 class="text-4xl sm:text-5xl font-extrabold mb-2">
+    {blok.headline}
+  </h1>
+  <h2 class="text-2xl sm:text-3xl font-extralight mb-4">
+    {blok.subheadline}
+  </h2>
   <time class="block mb-4">Published on {publishedFormatted}</time>
   {
     blok.is_canonical && blok.canonical_url && (
       <Canonical url={blok.canonical_url} />
     )
   }
-  <section class="text-xl mb-4">{blok.teaser}</section>
+  <section class="text-lg md:text-xl mb-4">{blok.teaser}</section>
   <section
     set:html={renderedRichText}
     class="prose prose-stone-200 dark:prose-invert mb-12"

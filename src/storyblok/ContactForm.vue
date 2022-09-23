@@ -43,7 +43,7 @@
     <div>
       <button
         type="submit"
-        class="rounded-lg bg-stone-200 py-2 px-4 font-extrabold transition-colors duration-500 hover:bg-primary hover:text-white dark:bg-stone-800"
+        class="inline-flex transform rounded-lg bg-primary py-2.5 px-4 tracking-wider text-white transition-all duration-500 hover:-translate-y-0.5 hover:shadow-md hover:shadow-primary/30"
       >
         Send message
       </button>
