@@ -8,6 +8,8 @@ const { blok, index } = Astro.props
 
 const headlineTag = index === 0 ? 'h1' : 'h2'
 
+const cardHeadlineTag = index === 0 ? 'h2' : 'h3'
+
 const storyblokApi = useStoryblokApi()
 
 const { data } = await storyblokApi.get('cdn/stories/', {
@@ -27,7 +29,11 @@ const articles = data.stories.filter((story) => story.is_startpage !== true)
     {
       articles?.map((article) => {
         return (
-          <ArticleCard article={article.content} slug={article.full_slug} />
+          <ArticleCard
+            article={article.content}
+            slug={article.full_slug}
+            cardHeadlineTag={cardHeadlineTag}
+          />
         )
       })
     }

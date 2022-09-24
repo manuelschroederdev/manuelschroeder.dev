@@ -15,7 +15,7 @@ const articles = data.stories.filter((story) => story.is_startpage !== true)
 
 <section class="page-section container">
   <Headline tag="h1">Blog Articles</Headline>
-  <div class="grid grid-cols-3 gap-12">
+  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-12 place-items-center">
     {
       articles?.map((article) => {
         return (
