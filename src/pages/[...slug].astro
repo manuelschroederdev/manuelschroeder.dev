@@ -25,7 +25,7 @@ const { slug } = Astro.params
 const storyblokApi = useStoryblokApi()
 
 const { data } = await storyblokApi.get(`cdn/stories/${slug}`, {
-  version: 'draft',
+  version: import.meta.env.NETLIFY === 'true' ? 'published' : 'draft',
 })
 
 const story = data.story
