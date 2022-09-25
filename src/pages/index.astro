@@ -16,8 +16,11 @@ const seo = {
 if (story.content.seo) {
   seo.meta_desc = story.content.seo[0].meta_desc
 }
+
+const test = import.meta.env.NETLIFY
 ---
 
 <BaseLayout meta_desc={seo.meta_desc}>
+  {test}
   <StoryblokComponent blok={story.content} />
 </BaseLayout>
