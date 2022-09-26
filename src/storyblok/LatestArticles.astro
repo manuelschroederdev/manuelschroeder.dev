@@ -14,7 +14,7 @@ const cardHeadlineTag = index === 0 ? 'h2' : 'h3'
 const storyblokApi = useStoryblokApi()
 
 const { data } = await storyblokApi.get('cdn/stories/', {
-  version: import.meta.env.NETLIFY === 'true' ? 'published' : 'draft',
+  version: 'published',
   starts_with: 'blog',
   per_page: '6',
 })

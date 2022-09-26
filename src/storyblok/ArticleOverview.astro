@@ -6,7 +6,7 @@ import ArticleCard from '../components/ArticleCard.astro'
 const storyblokApi = useStoryblokApi()
 
 const { data } = await storyblokApi.get('cdn/stories/', {
-  version: import.meta.env.NETLIFY === 'true' ? 'published' : 'draft',
+  version: 'published',
   starts_with: 'blog',
 })
 

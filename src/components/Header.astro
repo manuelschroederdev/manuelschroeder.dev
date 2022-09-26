@@ -5,7 +5,7 @@ import HeaderIcons from './HeaderIcons.astro'
 
 const storyblokApi = useStoryblokApi()
 const { data } = await storyblokApi.get('cdn/stories/site-config', {
-  version: import.meta.env.NETLIFY === 'true' ? 'published' : 'draft',
+  version: 'published',
 })
 
 const story = data.story
