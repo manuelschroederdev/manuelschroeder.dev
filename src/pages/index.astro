@@ -17,10 +17,10 @@ if (story.content.seo) {
   seo.meta_desc = story.content.seo[0].meta_desc
 }
 
-const test = import.meta.env.NETLIFY
+const version = import.meta.env.NETLIFY === 'true' ? 'published' : 'draft'
 ---
 
 <BaseLayout meta_desc={seo.meta_desc}>
-  {test}
+  {version}
   <StoryblokComponent blok={story.content} />
 </BaseLayout>
