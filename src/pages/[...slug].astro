@@ -11,7 +11,9 @@ export async function getStaticPaths() {
   })
   let links = data.links
   links = Object.values(links)
-  links = links.filter((link) => link.slug !== 'site-config')
+  links = links.filter(
+    (link) => link.slug !== 'site-config' && links.slug !== 'home'
+  )
 
   return links.map((link) => {
     return {

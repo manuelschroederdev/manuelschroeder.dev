@@ -14,7 +14,7 @@ const cardHeadlineTag = index === 0 ? 'h2' : 'h3'
 const storyblokApi = useStoryblokApi()
 
 const { data } = await storyblokApi.get('cdn/stories/', {
-  version: 'draft',
+  version: import.meta.env.NETLIFY === 'true' ? 'published' : 'draft',
   starts_with: 'blog',
   per_page: '6',
 })
@@ -24,21 +24,26 @@ const articles = data.stories.filter((story) => story.is_startpage !== true)
 
 <section {...storyblokEditable(blok)} class="page-section text-center">
   <Headline tag={headlineTag}>Latest Articles</Headline>
-  <div
-    class="container grid md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12 place-items-center"
-  >
-    {
-      articles?.map((article) => {
-        return (
-          <ArticleCard
-            article={article.content}
-            slug={article.full_slug}
-            cardHeadlineTag={cardHeadlineTag}
-          />
-        )
-      })
-    }
-  </div>
+  {
+    articles && (
+      <div class="container grid place-items-center gap-8 md:grid-cols-2 md:gap-12 lg:grid-cols-3">
+        {articles?.map((article) => {
+          return (
+            <ArticleCard
+              article={article.content}
+              slug={article.full_slug}
+              cardHeadlineTag={cardHeadlineTag}
+            />
+          )
+        })}
+      </div>
+    )
+  }
+  {
+    !!articles && (
+      <div class="container">Unfortunately, no articles could be found.</div>
+    )
+  }
   {
     blok.button[0] && (
       <div class="mt-8">
