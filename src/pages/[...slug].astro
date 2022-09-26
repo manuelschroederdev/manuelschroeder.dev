@@ -7,7 +7,7 @@ export async function getStaticPaths() {
   const storyblokApi = useStoryblokApi()
 
   const { data } = await storyblokApi.get('cdn/links', {
-    version: 'draft',
+    version: import.meta.env.NETLIFY === 'true' ? 'published' : 'draft',
   })
   let links = data.links
   links = Object.values(links)
@@ -25,8 +25,7 @@ const { slug } = Astro.params
 const storyblokApi = useStoryblokApi()
 
 const { data } = await storyblokApi.get(`cdn/stories/${slug}`, {
-  //version: import.meta.env.NETLIFY === 'true' ? 'published' : 'draft',
-  version: 'draft',
+  version: import.meta.env.NETLIFY === 'true' ? 'published' : 'draft',
 })
 
 const story = data.story
