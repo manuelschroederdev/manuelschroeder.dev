@@ -16,7 +16,7 @@ const articles = data.stories.filter((story) => story.is_startpage !== true)
 <section class="page-section container">
   <Headline tag="h1">Blog Articles</Headline>
   {
-    articles && (
+    articles ? (
       <div class="grid place-items-center gap-8 md:grid-cols-2 md:gap-12 lg:grid-cols-3">
         {articles?.map((article) => {
           return (
@@ -24,7 +24,8 @@ const articles = data.stories.filter((story) => story.is_startpage !== true)
           )
         })}
       </div>
+    ) : (
+      <div>Unfortunately, no articles could be found.</div>
     )
   }
-  {!articles && <div>Unfortunately, no articles could be found.</div>}
 </section>
