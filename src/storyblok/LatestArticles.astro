@@ -40,7 +40,7 @@ const articles = data.stories.filter((story) => story.is_startpage !== true)
     )
   }
   {
-    !!articles && (
+    !articles && (
       <div class="container">Unfortunately, no articles could be found.</div>
     )
   }

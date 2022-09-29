@@ -26,5 +26,5 @@ const articles = data.stories.filter((story) => story.is_startpage !== true)
       </div>
     )
   }
-  {!!articles && <div>Unfortunately, no articles could be found.</div>}
+  {!articles && <div>Unfortunately, no articles could be found.</div>}
 </section>
