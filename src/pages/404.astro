@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+import Headline from '../components/Headline.astro'
+import Link from '../components/Link.astro'
+---
+
+<BaseLayout
+  meta_desc="Unfortunately, the page you're looking for does not seem to exist."
+>
+  <section class="page-section container">
+    <Headline>Nothing found...</Headline>
+    <p class="mb-6">
+      Unfortunately, the page you're looking for does not seem to exist.
+    </p>
+    <Link href="/">Go to home</Link>
+  </section>
+</BaseLayout>
