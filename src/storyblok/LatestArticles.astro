@@ -42,7 +42,7 @@ const articles = data.stories.filter((story) => story.is_startpage !== true)
     )
   }
   {
-    blok.button[0] && (
+    articles.length && blok.button[0] && (
       <div class="mt-8">
         <StoryblokComponent blok={blok.button[0]} />
       </div>

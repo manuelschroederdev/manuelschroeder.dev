@@ -18,6 +18,7 @@
         name="name"
         id="name"
         v-model="formData.name"
+        required
       />
     </div>
     <div>
@@ -28,6 +29,7 @@
         name="email"
         id="email"
         v-model="formData.email"
+        required
       />
     </div>
     <div>
@@ -38,6 +40,7 @@
         id="message"
         rows="7"
         v-model="formData.message"
+        required
       ></textarea>
     </div>
     <div>
@@ -74,12 +77,12 @@ const encode = (data) => {
     .join('&')
 }
 
-const handleSubmit = (event) => {
+const handleSubmit = () => {
   fetch('/', {
     method: 'POST',
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
     body: encode({
-      'form-name': event.target.getAttribute('name'),
+      'form-name': 'contact-form',
       ...formData,
     }),
   })
