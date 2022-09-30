@@ -14,8 +14,9 @@ const published = new Date(blok.published)
 const sep = '/'
 const publishedFormatted =
   published.getMonth() +
+  1 +
   sep +
-  published.getDay() +
+  published.getDate() +
   sep +
   published.getFullYear()
 ---
