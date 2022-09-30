@@ -11,8 +11,29 @@ const { data } = await storyblokApi.get('cdn/stories/site-config', {
 const story = data.story
 ---
 
+<script>
+  const header = document.getElementById('site-header')
+
+  const shrinkHeader = () => {
+    if (scrollY > 150) {
+      header.classList.remove('h-32')
+      header.classList.add('h-20')
+    } else {
+      header.classList.remove('h-20')
+      header.classList.add('h-32')
+    }
+  }
+
+  window.addEventListener('scroll', () => {
+    shrinkHeader()
+  })
+
+  shrinkHeader()
+</script>
+
 <header
-  class="fixed z-50 top-0 left-0 bg-white bg-opacity-70 backdrop-blur-md w-full h-32 dark:bg-stone-900 dark:bg-opacity-60"
+  id="site-header"
+  class="fixed z-50 top-0 left-0 bg-white bg-opacity-70 backdrop-blur-md w-full h-32 dark:bg-stone-900 dark:bg-opacity-60 transition-all duration-500"
 >
   <div class="container flex items-center justify-between h-full">
     <a href="/">
