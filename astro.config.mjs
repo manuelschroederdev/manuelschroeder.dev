@@ -31,7 +31,9 @@ export default defineConfig({
     }),
     tailwind(),
     vue(),
-    image(),
+    image({
+      serviceEntryPoint: '@astrojs/image/sharp',
+    }),
     sitemap({
       filter: (page) => page !== 'https://manuelschroeder.dev/site-config/',
     }),
