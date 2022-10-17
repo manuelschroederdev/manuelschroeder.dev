@@ -8,9 +8,10 @@ const storyblokApi = useStoryblokApi()
 const { data } = await storyblokApi.get('cdn/stories/', {
   version: import.meta.env.NETLIFY === 'true' ? 'published' : 'draft',
   starts_with: 'blog',
+  is_startpage: false,
 })
 
-const articles = data.stories.filter((story) => story.is_startpage !== true)
+const articles = data.stories
 ---
 
 <section class="page-section container">
