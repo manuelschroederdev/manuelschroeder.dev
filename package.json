@@ -9,23 +9,23 @@
     "format": "prettier --write src"
   },
   "devDependencies": {
-    "@astrojs/image": "^0.9.3",
+    "@astrojs/image": "^0.10.0",
     "@astrojs/sitemap": "^1.0.0",
-    "@astrojs/tailwind": "^2.0.2",
-    "@astrojs/vue": "^1.1.0",
+    "@astrojs/tailwind": "^2.1.1",
+    "@astrojs/vue": "^1.2.1",
     "@storyblok/astro": "^1.1.0",
     "@tailwindcss/line-clamp": "^0.4.2",
     "@tailwindcss/typography": "^0.5.7",
     "@vitejs/plugin-basic-ssl": "^0.1.2",
-    "astro": "^1.4.7",
+    "astro": "^1.5.2",
     "axios": "^0.27.2",
-    "dotenv": "^16.0.2",
+    "dotenv": "^16.0.3",
     "highlight.js": "^11.6.0",
     "prettier": "^2.7.1",
-    "prettier-plugin-astro": "^0.5.4",
+    "prettier-plugin-astro": "^0.6.0",
     "prettier-plugin-tailwindcss": "^0.1.13",
     "sharp": "^0.31.1",
-    "tailwindcss": "^3.1.8",
-    "vue": "^3.2.40"
+    "tailwindcss": "^3.2.1",
+    "vue": "^3.2.41"
   }
 }
