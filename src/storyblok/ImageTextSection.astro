@@ -3,7 +3,6 @@ import Headline from '../components/Headline.astro'
 import { renderRichText } from '@storyblok/astro'
 import { storyblokEditable } from '@storyblok/astro'
 import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro'
-import { Image } from '@astrojs/image/components'
 
 const { blok, index } = Astro.props
 
@@ -19,12 +18,12 @@ const renderedRichText = renderRichText(blok.text)
   <div class="md:relative md:order-1">
     {
       blok.image?.filename && (
-        <Image
+        <img
           class="pointer-events-none rounded-lg shadow-lg sm:max-w-sm md:sticky md:top-48 md:max-w-full"
           alt={blok.image.alt}
-          src={blok.image.filename + '/m/1000x0'}
-          width="1000"
-          aspectRatio={3 / 2}
+          src={blok.image.filename + '/m/1200x800'}
+          width="1200"
+          height="800"
         />
       )
     }

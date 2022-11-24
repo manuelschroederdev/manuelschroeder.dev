@@ -5,7 +5,6 @@ import vue from '@astrojs/vue'
 import storyblok from '@storyblok/astro'
 import tailwind from '@astrojs/tailwind'
 import sitemap from '@astrojs/sitemap'
-import image from '@astrojs/image'
 import basicSsl from '@vitejs/plugin-basic-ssl'
 import cloudflare from '@astrojs/cloudflare'
 
@@ -33,9 +32,6 @@ export default defineConfig({
     }),
     tailwind(),
     vue(),
-    image({
-      serviceEntryPoint: '@astrojs/image/sharp',
-    }),
     sitemap({
       filter: (page) => page !== 'https://manuelschroeder.dev/site-config/',
     }),
