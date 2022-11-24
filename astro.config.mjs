@@ -7,7 +7,9 @@ import tailwind from '@astrojs/tailwind'
 import sitemap from '@astrojs/sitemap'
 import image from '@astrojs/image'
 import basicSsl from '@vitejs/plugin-basic-ssl'
+import cloudflare from '@astrojs/cloudflare'
 
+// https://astro.build/config
 export default defineConfig({
   site: 'https://manuelschroeder.dev',
   integrations: [
@@ -44,4 +46,6 @@ export default defineConfig({
       https: true,
     },
   },
+  output: process.env.SSR === 'true' ? 'server' : 'static',
+  adapter: cloudflare(),
 })
