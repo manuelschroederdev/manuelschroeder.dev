@@ -43,5 +43,5 @@ export default defineConfig({
     },
   },
   output: process.env.SSR === 'true' ? 'server' : 'static',
-  adapter: cloudflare(),
+  adapter: cloudflare({ mode: 'directory' }),
 })
