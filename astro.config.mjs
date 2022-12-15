@@ -6,7 +6,6 @@ import storyblok from '@storyblok/astro'
 import tailwind from '@astrojs/tailwind'
 import sitemap from '@astrojs/sitemap'
 import basicSsl from '@vitejs/plugin-basic-ssl'
-import cloudflare from '@astrojs/cloudflare'
 
 // https://astro.build/config
 export default defineConfig({
@@ -42,6 +41,4 @@ export default defineConfig({
       https: true,
     },
   },
-  output: process.env.SSR === 'true' ? 'server' : 'static',
-  adapter: cloudflare({ mode: 'directory' }),
 })
