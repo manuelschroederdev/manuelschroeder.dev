@@ -5,10 +5,12 @@
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
+    "build-noindex": "astro build && echo 'User-agent: *\nDisallow: /' > dist/robots.txt",
     "preview": "astro preview",
     "format": "prettier --write src"
   },
   "devDependencies": {
+    "@astrojs/netlify": "^2.1.2",
     "@astrojs/sitemap": "^1.0.1",
     "@astrojs/tailwind": "^3.0.1",
     "@astrojs/vue": "^2.0.1",

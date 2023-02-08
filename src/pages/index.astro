@@ -5,7 +5,7 @@ import BaseLayout from '../layouts/BaseLayout.astro'
 
 const storyblokApi = useStoryblokApi()
 const { data } = await storyblokApi.get('cdn/stories/home', {
-  version: import.meta.env.NETLIFY === 'true' ? 'published' : 'draft',
+  version: import.meta.env.PRODUCTION === 'true' ? 'published' : 'draft',
 })
 
 const story = data.story

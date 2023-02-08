@@ -6,6 +6,7 @@ import storyblok from '@storyblok/astro'
 import tailwind from '@astrojs/tailwind'
 import sitemap from '@astrojs/sitemap'
 import basicSsl from '@vitejs/plugin-basic-ssl'
+import netlify from '@astrojs/netlify/functions'
 
 // https://astro.build/config
 export default defineConfig({
@@ -13,7 +14,7 @@ export default defineConfig({
   integrations: [
     storyblok({
       accessToken: process.env.STORYBLOK_TOKEN,
-      bridge: process.env.NETLIFY === 'true' ? false : true,
+      bridge: process.env.PRODUCTION === 'true' ? false : true,
       components: {
         page: 'storyblok/Page',
         article: 'storyblok/Article',
@@ -35,6 +36,8 @@ export default defineConfig({
       filter: (page) => page !== 'https://manuelschroeder.dev/site-config/',
     }),
   ],
+  output: process.env.PRODUCTION === 'true' ? 'static' : 'server',
+  adapter: netlify(),
   vite: {
     plugins: [basicSsl()],
     server: {
