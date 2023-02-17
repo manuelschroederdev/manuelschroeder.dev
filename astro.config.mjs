@@ -35,9 +35,17 @@ export default defineConfig({
     sitemap({
       filter: (page) => page !== 'https://manuelschroeder.dev/site-config/',
     }),
+    robotsTxt({
+      policy: [
+        {
+          userAgent: '*',
+          disallow: process.env.PRODUCTION === 'true' ? '/' : '',
+        },
+      ],
+    }),
   ],
   output: process.env.PRODUCTION === 'true' ? 'static' : 'server',
-  adapter: netlify(),
+  adapter: process.env.PRODUCTION === 'true' ? undefined : netlify(),
   vite: {
     plugins: [basicSsl()],
     server: {
