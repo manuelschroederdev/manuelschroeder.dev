@@ -7,6 +7,7 @@ import tailwind from '@astrojs/tailwind'
 import sitemap from '@astrojs/sitemap'
 import basicSsl from '@vitejs/plugin-basic-ssl'
 import netlify from '@astrojs/netlify/functions'
+import robotsTxt from 'astro-robots-txt'
 
 // https://astro.build/config
 export default defineConfig({
