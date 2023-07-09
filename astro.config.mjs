@@ -40,7 +40,7 @@ export default defineConfig({
       policy: [
         {
           userAgent: '*',
-          disallow: process.env.PRODUCTION === 'true' ? '/' : '',
+          disallow: process.env.PRODUCTION === 'true' ? '' : '/',
         },
       ],
     }),
