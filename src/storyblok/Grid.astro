@@ -11,8 +11,9 @@ const headlineTag = index === 0 ? 'h1' : 'h2'
 <section {...storyblokEditable(blok)} class="page-section text-center">
   <Headline tag={headlineTag}>{blok.headline}</Headline>
   <div
-    class="container grid grid-cols-4 lg:grid-cols-6 gap-6 place-items-center"
+    class="container grid grid-cols-4 place-items-center gap-6 lg:grid-cols-6"
   >
+    <pre>{blok.cards}</pre>
     {
       blok.cards?.map((blok) => {
         return <StoryblokComponent blok={blok} />
