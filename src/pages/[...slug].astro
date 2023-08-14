@@ -2,12 +2,13 @@
 import { useStoryblokApi } from '@storyblok/astro'
 import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro'
 import BaseLayout from '../layouts/BaseLayout.astro'
+import getSbVersion from '../functions/getSbVersion'
 
 export async function getStaticPaths() {
   const storyblokApi = useStoryblokApi()
 
   const { data } = await storyblokApi.get('cdn/links', {
-    version: import.meta.env.PRODUCTION === 'true' ? 'published' : 'draft',
+    version: getSbVersion(),
   })
   let links = data.links
   links = Object.values(links)
@@ -27,7 +28,7 @@ const { slug } = Astro.params
 const storyblokApi = useStoryblokApi()
 
 const { data } = await storyblokApi.get(`cdn/stories/${slug}`, {
-  version: import.meta.env.PRODUCTION === 'true' ? 'published' : 'draft',
+  version: getSbVersion(),
 })
 
 const story = data.story

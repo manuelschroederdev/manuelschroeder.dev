@@ -4,6 +4,7 @@ import { useStoryblokApi } from '@storyblok/astro'
 import { storyblokEditable } from '@storyblok/astro'
 import ArticleCard from '../components/ArticleCard.astro'
 import Headline from '../components/Headline.astro'
+import getSbVersion from '../functions/getSbVersion'
 
 const { blok, index } = Astro.props
 
@@ -14,9 +15,9 @@ const cardHeadlineTag = index === 0 ? 'h2' : 'h3'
 const storyblokApi = useStoryblokApi()
 
 const { data } = await storyblokApi.get('cdn/stories/', {
-  version: import.meta.env.PRODUCTION === 'true' ? 'published' : 'draft',
+  version: getSbVersion(),
   starts_with: 'blog',
-  per_page: '6',
+  per_page: 6,
   is_startpage: false,
 })
 

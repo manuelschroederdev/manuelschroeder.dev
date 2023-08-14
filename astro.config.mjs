@@ -9,13 +9,12 @@ import basicSsl from '@vitejs/plugin-basic-ssl'
 import netlify from '@astrojs/netlify/functions'
 import robotsTxt from 'astro-robots-txt'
 
-// https://astro.build/config
 export default defineConfig({
   site: 'https://manuelschroeder.dev',
   integrations: [
     storyblok({
       accessToken: process.env.STORYBLOK_TOKEN,
-      bridge: process.env.PRODUCTION === 'true' ? false : true,
+      bridge: process.env.SITE_NAME === 'manuelschroeder' ? false : true,
       components: {
         page: 'storyblok/Page',
         article: 'storyblok/Article',
@@ -40,13 +39,13 @@ export default defineConfig({
       policy: [
         {
           userAgent: '*',
-          disallow: process.env.PRODUCTION === 'true' ? '' : '/',
+          disallow: process.env.SITE_NAME === 'manuelschroeder' ? '' : '/',
         },
       ],
     }),
   ],
-  output: process.env.PRODUCTION === 'true' ? 'static' : 'server',
-  adapter: process.env.PRODUCTION === 'true' ? undefined : netlify(),
+  output: process.env.SITE_NAME === 'manuelschroeder' ? 'hybrid' : 'server',
+  adapter: netlify(),
   vite: {
     plugins: [basicSsl()],
     server: {

@@ -2,10 +2,11 @@
 import { useStoryblokApi } from '@storyblok/astro'
 import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro'
 import HeaderIcons from './HeaderIcons.astro'
+import getSbVersion from '../functions/getSbVersion'
 
 const storyblokApi = useStoryblokApi()
 const { data } = await storyblokApi.get('cdn/stories/site-config', {
-  version: import.meta.env.PRODUCTION === 'true' ? 'published' : 'draft',
+  version: getSbVersion(),
 })
 
 const story = data.story
