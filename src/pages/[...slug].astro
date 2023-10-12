@@ -13,10 +13,10 @@ export async function getStaticPaths() {
   let links = data.links
   links = Object.values(links)
   links = links.filter(
-    (link) => link.slug !== 'site-config' && links.slug !== 'home'
+    (link: any) => link.slug !== 'site-config' && links.slug !== 'home'
   )
 
-  return links.map((link) => {
+  return links.map((link: any) => {
     return {
       params: { slug: link.slug },
     }
