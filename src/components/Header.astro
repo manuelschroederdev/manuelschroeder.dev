@@ -15,39 +15,41 @@ const story = data.story
 <script>
   const header = document.getElementById('site-header')
 
-  const shrinkHeader = () => {
-    if (scrollY > 150) {
-      header.classList.remove('h-32')
-      header.classList.add('h-20')
-    } else {
-      header.classList.remove('h-20')
-      header.classList.add('h-32')
+  if (header) {
+    const shrinkHeader = () => {
+      if (scrollY > 150) {
+        header.classList.remove('h-32')
+        header.classList.add('h-20')
+      } else {
+        header.classList.remove('h-20')
+        header.classList.add('h-32')
+      }
     }
-  }
 
-  window.addEventListener('scroll', () => {
+    window.addEventListener('scroll', () => {
+      shrinkHeader()
+    })
+
     shrinkHeader()
-  })
-
-  shrinkHeader()
+  }
 </script>
 
 <header
-  id="site-header"
-  class="fixed z-50 top-0 left-0 bg-white bg-opacity-70 backdrop-blur-md w-full h-32 dark:bg-stone-900 dark:bg-opacity-60 transition-[height] duration-500"
+  id='site-header'
+  class='fixed z-50 top-0 left-0 bg-white bg-opacity-70 backdrop-blur-md w-full h-32 dark:bg-stone-900 dark:bg-opacity-60 transition-[height] duration-500'
 >
-  <div class="container flex items-center justify-between h-full">
-    <a href="/">
-      <span class="text-xl font-extrabold text-primary">Manuel Schröder</span>
+  <div class='container flex items-center justify-between h-full'>
+    <a href='/'>
+      <span class='text-xl font-extrabold text-primary'>Manuel Schröder</span>
     </a>
     <HeaderIcons />
   </div>
   <nav
-    role="navigation"
-    aria-label="Main navigation"
-    class="hidden invisible lg:block lg:visible absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 z-10"
+    role='navigation'
+    aria-label='Main navigation'
+    class='hidden invisible lg:block lg:visible absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 z-10'
   >
-    <ul class="flex space-x-4">
+    <ul class='flex space-x-4'>
       {
         story.content.header_nav.map((blok) => {
           return (

@@ -5,9 +5,9 @@ import vue from '@astrojs/vue'
 import storyblok from '@storyblok/astro'
 import tailwind from '@astrojs/tailwind'
 import sitemap from '@astrojs/sitemap'
-import basicSsl from '@vitejs/plugin-basic-ssl'
 import netlify from '@astrojs/netlify/functions'
 import robotsTxt from 'astro-robots-txt'
+import mkcert from 'vite-plugin-mkcert'
 
 export default defineConfig({
   site: 'https://manuelschroeder.dev',
@@ -47,7 +47,7 @@ export default defineConfig({
   output: process.env.SITE_NAME === 'manuelschroeder' ? 'hybrid' : 'server',
   adapter: netlify(),
   vite: {
-    plugins: [basicSsl()],
+    plugins: [mkcert()],
     server: {
       https: true,
     },
